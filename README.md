@@ -1,3 +1,2 @@
 # openpgp-testing
 
-test
