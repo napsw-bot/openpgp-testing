@@ -1,0 +1,21 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Dependencies
+      run: |
+         echo "${{ secrets.SIGNING_KEY }}" > ~/sign.key
+         chmod 0600 ~/sign.key
+         gpg --import ~/sign.key
